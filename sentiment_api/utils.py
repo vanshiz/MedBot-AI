@@ -7,9 +7,8 @@ nltk.download("stopwords")
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-model = AutoModelForSequenceClassification.from_pretrained("vanshiz/distress-sentiment").to(device)
-tokenizer = AutoTokenizer.from_pretrained("vanshiz/distress-sentiment")
-
+model = AutoModelForSequenceClassification.from_pretrained("./fine_tuned_model").to(device)
+tokenizer = AutoTokenizer.from_pretrained("./fine_tuned_model")
 
 index_to_label = {0: "Normal", 1: "Low", 2: "High", 3: "Medium"}
 
