@@ -10,7 +10,7 @@ const axios = require("axios");
  * @param {string} userEmail - User's email for tracking
  * @returns {Promise<string>} The summary only
  */
-async function createSummarizeChain(conversationHistory, userEmail) {
+async function createSummarizeChain(conversationHistory, userEmail,userQueries) {
     try {
         const groq = new ChatGroq({
             apiKey: process.env.GROQ_API_KEY || "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",
@@ -50,8 +50,8 @@ async function createSummarizeChain(conversationHistory, userEmail) {
 
         // Just log the sentiment, don’t return it
         try {
-            const response = await axios.post("http://localhost:8000/analyze", {
-                text: summary
+            const response = await axios.post("", {
+                text: userQueries
             });
 
             const sentimentResult = response.data;
