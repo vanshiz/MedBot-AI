@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: sentiment-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: HF_HUB_CACHE
+        value: /opt/render/project/.cache/huggingface
